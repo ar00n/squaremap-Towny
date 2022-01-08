@@ -53,87 +53,87 @@ public class MapConfig {
 
     @Comment("Worlds that should display town claims.")
     @Node("enabled-worlds")
-    private final List<String> enabledWorlds = Collections.singletonList("world");
+    private List<String> enabledWorlds = Collections.singletonList("world");
 
     @Comment({"", "How often should the plugin render all towns? (In minutes)"})
     @Node("update-period")
-    private final int updatePeriod = 5;
+    private int updatePeriod = 5;
 
     @Comment({"", "Layer Properties"})
     @Node("layer")
-    private final LayerInfo layerInfo = new LayerInfo();
+    private LayerInfo layerInfo = new LayerInfo();
 
     @Comment({"", "Fill Style.", "Properties about how claims should look on the map"})
     @Node("fill-style")
-    private final FillStyle fillStyle = new FillStyle();
+    private FillStyle fillStyle = new FillStyle();
 
     @Comment({"", "Icon Properties:", "Icons are placed at the center of a town's homeblock."})
     @Node("icon-info")
-    private final IconInfo iconInfo = new IconInfo();
+    private IconInfo iconInfo = new IconInfo();
 
     @SerializableConfig
     private static class LayerInfo {
         @Comment("Name of the layer")
-        private final String name = "Towny";
+        private String name = "Towny";
 
         @Comment("Should the layer be toggleable by users?")
         @Node("show-controls")
-        private final boolean showControls = true;
+        private boolean showControls = true;
 
         @Comment("Should the layer be invisible by default?")
         @Node("default-hidden")
-        private final boolean defaultHidden = false;
+        private boolean defaultHidden = false;
 
         @Comment({"Layer Priority.", "Don't need to touch this unless other squaremap add-ons are interfering with the layer."})
         @Node("layer-priority")
-        private final int layerPriority = 5;
+        private int layerPriority = 5;
 
         @Comment({"The z-index on which the layer will display.", "Decrease if you want the layer to be more blended in with the map."})
         @Node("z-index")
-        private final int zIndex = 250;
+        private int zIndex = 250;
     }
 
     @SerializableConfig
     private static class FillStyle {
         @Comment("Whether to fill the claim with color")
-        private final boolean fill = true;
+        private boolean fill = true;
 
         @Node("fill-color")
-        private final String fillColor = "#3388ff";
+        private String fillColor = "#3388ff";
 
         @Node("fill-opacity")
-        private final double fillOpacity = 0.2;
+        private double fillOpacity = 0.2;
 
         @Comment("Use specified nation color as the fill color instead?")
         @Node("use-nation-color-fill")
-        private final boolean useNationColorFill = true;
+        private boolean useNationColorFill = true;
 
         @Comment({"", "Whether to draw a stroke along the claim path."})
-        private final boolean stroke = true;
+        private boolean stroke = true;
 
         @Comment("Stroke width in pixels")
         @Node("stroke-weight")
-        private final int strokeWeight = 3;
+        private int strokeWeight = 3;
 
         @Node("stroke-color")
-        private final String strokeColor = "#3388ff";
+        private String strokeColor = "#3388ff";
 
         @Node("stroke-opacity")
-        private final double strokeOpacity = 1.0;
+        private double strokeOpacity = 1.0;
 
         @Comment("Use specified nation color as the stroke color instead?")
         @Node("use-nation-color-stroke")
-        private final boolean useNationColorStroke = false;
+        private boolean useNationColorStroke = false;
 
         @Node("use-town-color-fill")
         @Comment({"Use specified town color as the fill color instead?",
                   "This option will take priority over the 'use-nation-color-fill' option if it is enabled."})
-        private final boolean useTownColorFill = false;
+        private boolean useTownColorFill = false;
 
         @Node("use-town-color-stroke")
         @Comment({"Use specified town color as the stroke color instead?",
                 "This option will take priority over the 'use-nation-color-stroke' option if it is enabled."})
-        private final boolean useTownColorStroke = false;
+        private boolean useTownColorStroke = false;
 
         private transient Color awtFillColor, awtStrokeColor;
     }
@@ -144,26 +144,26 @@ public class MapConfig {
                 "Default Icon created by icon king1 licensed under Creative Commons 3.0",
                 "https://creativecommons.org/licenses/by/3.0/"})
         @Node("town-icon")
-        private final String townIconImage = "https://pics.freeicons.io/uploads/icons/png/20952957581537355851-512.png";
+        private String townIconImage = "https://pics.freeicons.io/uploads/icons/png/20952957581537355851-512.png";
 
         @Comment({"Icon for a town if they are the capital of the nation. Icon must be a valid image URL.",
                 "Put 'default' to use the town icon image."})
         @Node("capital-icon")
-        private final String capitalIconImage = "default";
+        private String capitalIconImage = "default";
 
         @Comment({"Icon for an outpost claim that will appear at the location of outpost spawns. Icon must be a valid image URL.",
                 "Put 'default' to use the town icon image.",
                 "Put 'empty' to not place icons at outposts."})
         @Node("outpost-icon")
-        private final String outpostIconImage = "default";
+        private String outpostIconImage = "default";
 
         @Comment("Height of the icon")
         @Node("icon-height")
-        private final int iconSizeX = 35;
+        private int iconSizeX = 35;
 
         @Comment("Width of the icon")
         @Node("icon-width")
-        private final int iconSizeY = 35;
+        private int iconSizeY = 35;
     }
 
     public List<String> getEnabledWorlds() {
