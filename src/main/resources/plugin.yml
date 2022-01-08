@@ -1,39 +1,39 @@
-name: Pl3xMap-Towny
+name: squaremap-Towny
 version: ${project.version}
-main: me.silverwolfg11.pl3xmaptowny.Pl3xMapTowny
-api-version: 1.16
-depend: [ Pl3xMap, Towny ]
-authors: [ Silverwolfg11 ]
-description: A Pl3x Map addon to support Towny
+main: me.ar00n.squaremaptowny.squaremapTowny
+api-version: 1.18
+depend: [ squaremap, Towny ]
+authors: [ Silverwolfg11, ar00n ]
+description: A fork of a Pl3x Map addon to support Towny on squaremap
 
 commands:
-  pl3xmaptowny:
-    description: Command for Pl3xMap-Towny
-    aliases: [plexmaptowny, plextowny]
-    permission: pl3xmaptowny.use
+  squaremaptowny:
+    description: Command for sqaremap-Towny
+    aliases: [sqmaptowny, maptowny]
+    permission: squaremapTowny.use
 
 permissions:
-  pl3xmaptowny.admin:
-    description: Admin permission for Pl3xMap-Towny
+  squaremapTowny.admin:
+    description: Admin permission for squaremap-Towny
     default: false
     children:
-      pl3xmaptowny.use: true
-      pl3xmaptowny.reload: true
-      pl3xmaptowny.render: true
-      pl3xmaptowny.unrender: true
+      squaremapTowny.use: true
+      squaremapTowny.reload: true
+      squaremapTowny.render: true
+      squaremapTowny.unrender: true
 
-  pl3xmaptowny.use:
-    description: Permission to use the Pl3xMap-Towny command
+  squaremapTowny.use:
+    description: Permission to use the squaremap-Towny command
     default: op
 
-  pl3xmaptowny.reload:
-    description: Allows access to sub-cmd to reload Pl3xMap-Towny
+  squaremapTowny.reload:
+    description: Allows access to sub-cmd to reload squaremap-Towny
     default: op
 
-  pl3xmaptowny.render:
-    description: Allows access to sub-cmd to render a town on the Pl3xMap
+  squaremapTowny.render:
+    description: Allows access to sub-cmd to render a town on the Squaremap
     default: op
 
-  pl3xmaptowny.unrender:
-    description: Allows access to sub-cmd to unrender a town on the Pl3xMap
+  squaremapTowny.unrender:
+    description: Allows access to sub-cmd to unrender a town on the Squaremap
     default: op

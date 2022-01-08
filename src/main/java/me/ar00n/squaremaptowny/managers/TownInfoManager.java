@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.managers;
+package me.ar00n.squaremaptowny.managers;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.TownyEconomyHandler;
@@ -28,7 +28,7 @@ import com.palmergames.bukkit.towny.TownySettings;
 import com.palmergames.bukkit.towny.object.Government;
 import com.palmergames.bukkit.towny.object.Town;
 import com.palmergames.bukkit.towny.object.TownyObject;
-import me.silverwolfg11.pl3xmaptowny.objects.TextReplacement;
+import me.ar00n.squaremaptowny.objects.TextReplacement;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -139,7 +139,7 @@ public class TownInfoManager {
             return registeredTimeFormat.format(new Date(founded));
         });
 
-        registerParenthesesReplacement("nation",
+        registerParenthesesReplacement(
                 t-> t.hasNation() ? TownyAPI.getInstance().getTownNationOrNull(t).getName() : ""
         );
 
@@ -168,8 +168,8 @@ public class TownInfoManager {
 
     // Register a replacement that will replace parenthesis if empty.
     // E.g. For the key "nation", the replacement "(%nation%)" or "%nation%" would be valid.
-    private void registerParenthesesReplacement(String key, Function<Town, String> func) {
-        String wrappedKey = "%" + key + "%";
+    private void registerParenthesesReplacement(Function<Town, String> func) {
+        String wrappedKey = "%" + "nation" + "%";
         String pKey = "(" + wrappedKey + ")";
         Function<Town, String> pFunc = t -> {
             String result = func.apply(t);
@@ -232,24 +232,20 @@ public class TownInfoManager {
 
     public String getClickTooltip(Town town, Logger errorLogger) {
         final String townName = town.getName();
-        return clickReplacements.getReplacedText(town, (replacementKey, ex) -> {
-            errorLogger.log(
-                    Level.SEVERE,
-                    String.format("Error applying the replacement '%s' for click information on town '%s'!", replacementKey, townName),
-                    ex
-            );
-        });
+        return clickReplacements.getReplacedText(town, (replacementKey, ex) -> errorLogger.log(
+                Level.SEVERE,
+                String.format("Error applying the replacement '%s' for click information on town '%s'!", replacementKey, townName),
+                ex
+        ));
     }
 
     public String getHoverTooltip(Town town, Logger errorLogger) {
         final String townName = town.getName();
-        return hoverReplacements.getReplacedText(town, (replacementKey, ex) -> {
-            errorLogger.log(
-                    Level.SEVERE,
-                    String.format("Error applying the replacement '%s' for hover information on town '%s'!", replacementKey, townName),
-                    ex
-            );
-        });
+        return hoverReplacements.getReplacedText(town, (replacementKey, ex) -> errorLogger.log(
+                Level.SEVERE,
+                String.format("Error applying the replacement '%s' for hover information on town '%s'!", replacementKey, townName),
+                ex
+        ));
     }
 
 

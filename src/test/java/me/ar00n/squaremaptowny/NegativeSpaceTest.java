@@ -20,11 +20,11 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
-import me.silverwolfg11.pl3xmaptowny.util.NegativeSpaceFinder;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
+import me.ar00n.squaremaptowny.util.NegativeSpaceFinder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static me.silverwolfg11.pl3xmaptowny.TestHelpers.*;
+import static me.ar00n.squaremaptowny.TestHelpers.*;
 
 public class NegativeSpaceTest {
 

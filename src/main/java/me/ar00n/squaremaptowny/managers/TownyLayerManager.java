@@ -20,32 +20,26 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.managers;
+package me.ar00n.squaremaptowny.managers;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.TownySettings;
 import com.palmergames.bukkit.towny.object.Government;
 import com.palmergames.bukkit.towny.object.Nation;
 import com.palmergames.bukkit.towny.object.Town;
-import me.silverwolfg11.pl3xmaptowny.Pl3xMapTowny;
-import me.silverwolfg11.pl3xmaptowny.events.WorldRenderTownEvent;
-import me.silverwolfg11.pl3xmaptowny.objects.MapConfig;
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
-import me.silverwolfg11.pl3xmaptowny.objects.TownRenderEntry;
-import me.silverwolfg11.pl3xmaptowny.util.NegativeSpaceFinder;
-import me.silverwolfg11.pl3xmaptowny.util.PolygonUtil;
-import net.pl3x.map.api.Key;
-import net.pl3x.map.api.MapWorld;
-import net.pl3x.map.api.Pl3xMap;
-import net.pl3x.map.api.Pl3xMapProvider;
-import net.pl3x.map.api.Point;
-import net.pl3x.map.api.Registry;
-import net.pl3x.map.api.SimpleLayerProvider;
-import net.pl3x.map.api.marker.Icon;
-import net.pl3x.map.api.marker.Marker;
-import net.pl3x.map.api.marker.MarkerOptions;
-import net.pl3x.map.api.marker.MultiPolygon;
+import me.ar00n.squaremaptowny.events.WorldRenderTownEvent;
+import me.ar00n.squaremaptowny.objects.MapConfig;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
+import me.ar00n.squaremaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.util.NegativeSpaceFinder;
+import me.ar00n.squaremaptowny.util.PolygonUtil;
+import me.ar00n.squaremaptowny.squaremapTowny;
+import xyz.jpenilla.squaremap.api.*;
+import xyz.jpenilla.squaremap.api.marker.Icon;
+import xyz.jpenilla.squaremap.api.marker.Marker;
+import xyz.jpenilla.squaremap.api.marker.MarkerOptions;
+import xyz.jpenilla.squaremap.api.marker.MultiPolygon;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -69,7 +63,7 @@ import java.util.stream.Collectors;
 
 public class TownyLayerManager {
 
-    private final Pl3xMapTowny plugin;
+    private final squaremapTowny plugin;
     private final TownInfoManager townInfoManager;
 
     private final Map<String, SimpleLayerProvider> worldProviders = new ConcurrentHashMap<>();
@@ -84,17 +78,16 @@ public class TownyLayerManager {
 
     private final String TOWN_KEY_PREFIX = "town_";
     private final String TOWN_ICON_KEY_PREFIX = "town_icon_";
-    private final String TOWN_OUTPOST_ICON_KEY_PREFIX = "town_outpost_icon_";
 
     // Quick Indicators
     private final boolean usingOutposts;
 
-    public TownyLayerManager(Pl3xMapTowny plugin) {
+    public TownyLayerManager(squaremapTowny plugin) {
         this.plugin = plugin;
         this.townInfoManager = new TownInfoManager(plugin.getDataFolder(), plugin.getLogger());
 
         // Load world providers
-        Pl3xMap api = Pl3xMapProvider.get();
+        Squaremap api = SquaremapProvider.get();
         for (String worldName : plugin.config().getEnabledWorlds()) {
             World world = Bukkit.getWorld(worldName);
 
@@ -103,10 +96,10 @@ public class TownyLayerManager {
                 continue;
             }
 
-            MapWorld mapWorld = api.getWorldIfEnabled(world).orElse(null);
+            MapWorld mapWorld = api.getWorldIfEnabled(BukkitAdapter.worldIdentifier(world)).orElse(null);
 
             if (mapWorld == null) {
-                plugin.getLogger().severe(worldName + " is not an enabled world for Pl3xMap!");
+                plugin.getLogger().severe(worldName + " is not an enabled world for squaremap!");
                 continue;
             }
 
@@ -267,7 +260,7 @@ public class TownyLayerManager {
                     Optional<Point> homeblockPoint = tre.getHomeBlockPoint();
                     Key iconKey = tre.isCapital() ? CAPITAL_ICON : TOWN_ICON;
                     // Check if icon exists
-                    if (homeblockPoint.isPresent() && Pl3xMapProvider.get().iconRegistry().hasEntry(iconKey)) {
+                    if (homeblockPoint.isPresent() && SquaremapProvider.get().iconRegistry().hasEntry(iconKey)) {
                         Icon iconMarker = Marker.icon(homeblockPoint.get(), iconKey, config.getIconSizeX(), config.getIconSizeY());
 
                         iconMarker.markerOptions(
@@ -286,6 +279,7 @@ public class TownyLayerManager {
     }
 
     private void renderOutpostMarker(TownRenderEntry tre, String worldName, SimpleLayerProvider worldProvider, int iconSizeX, int iconSizeZ) {
+        String TOWN_OUTPOST_ICON_KEY_PREFIX = "town_outpost_icon_";
         final String keyPrefix = TOWN_OUTPOST_ICON_KEY_PREFIX + worldName + "_" + tre.getTownUUID() + "_";
         // Delete previous town outpost icons
         int remOutpostNum = 1;
@@ -415,13 +409,13 @@ public class TownyLayerManager {
         removeAllMarkers();
 
         // Unregister world providers and clear
-        Pl3xMap api = Pl3xMapProvider.get();
+        Squaremap api = SquaremapProvider.get();
         for (Map.Entry<String, SimpleLayerProvider> entry : worldProviders.entrySet()) {
             World world = Bukkit.getWorld(entry.getKey());
             if (world == null)
                 continue;
 
-            MapWorld mapWorld = api.getWorldIfEnabled(world).orElse(null);
+            MapWorld mapWorld = api.getWorldIfEnabled(BukkitAdapter.worldIdentifier(world)).orElse(null);
             if (mapWorld == null)
                 continue;
 
@@ -445,7 +439,7 @@ public class TownyLayerManager {
     // API Methods
 
     /**
-     * Get the {@link SimpleLayerProvider} that the Pl3xMap-Towny plugin uses for a specific world.
+     * Get the {@link SimpleLayerProvider} that the squaremap-Towny plugin uses for a specific world.
      *
      * @param worldName Name of the world.
      * @return the provider for the world if there is one, or {@code null} if there is not.

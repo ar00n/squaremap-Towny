@@ -20,14 +20,14 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
 import com.palmergames.bukkit.towny.Towny;
-import me.silverwolfg11.pl3xmaptowny.events.MapReloadEvent;
-import me.silverwolfg11.pl3xmaptowny.listeners.TownClaimListener;
-import me.silverwolfg11.pl3xmaptowny.managers.TownyLayerManager;
-import me.silverwolfg11.pl3xmaptowny.objects.MapConfig;
-import me.silverwolfg11.pl3xmaptowny.tasks.RenderTownsTask;
+import me.ar00n.squaremaptowny.events.MapReloadEvent;
+import me.ar00n.squaremaptowny.listeners.TownClaimListener;
+import me.ar00n.squaremaptowny.managers.TownyLayerManager;
+import me.ar00n.squaremaptowny.objects.MapConfig;
+import me.ar00n.squaremaptowny.tasks.RenderTownsTask;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.logging.Level;
 
-public final class Pl3xMapTowny extends JavaPlugin {
+public final class squaremapTowny extends JavaPlugin {
 
     private TownyLayerManager layerManager;
     private MapConfig config;
@@ -65,7 +65,7 @@ public final class Pl3xMapTowny extends JavaPlugin {
 
         // Register command
         TownyMapCommand commandExec = new TownyMapCommand(this);
-        PluginCommand command = getCommand("pl3xmaptowny");
+        PluginCommand command = getCommand("squaremaptowny");
         command.setExecutor(commandExec);
         command.setTabCompleter(commandExec);
 

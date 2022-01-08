@@ -20,9 +20,9 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.objects;
+package me.ar00n.squaremaptowny.objects;
 
-import net.pl3x.map.api.Point;
+import xyz.jpenilla.squaremap.api.Point;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

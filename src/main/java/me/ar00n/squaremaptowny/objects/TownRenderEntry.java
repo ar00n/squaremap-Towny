@@ -20,13 +20,14 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.objects;
+package me.ar00n.squaremaptowny.objects;
 
 import com.palmergames.bukkit.towny.TownySettings;
 import com.palmergames.bukkit.towny.exceptions.TownyException;
 import com.palmergames.bukkit.towny.object.Town;
 import com.palmergames.bukkit.towny.object.TownBlock;
-import net.pl3x.map.api.Point;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import xyz.jpenilla.squaremap.api.Point;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +42,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
+
+import static xyz.jpenilla.squaremap.api.Point.point;
 
 // Entry for a town that is going to be rendered
 // Stores all data needed for async rendering
@@ -172,7 +175,7 @@ public class TownRenderEntry {
             return Collections.emptyMap();
 
         return sortByWorld(
-                town.getAllOutpostSpawns(), Point::fromLocation,
+                town.getAllOutpostSpawns(), TownRenderEntry::fromLocation,
                 l -> {
                     World world = l.getWorld();
 
@@ -182,6 +185,11 @@ public class TownRenderEntry {
                     return world.getName();
                 }
         );
+    }
+
+    @NonNull
+    public static Point fromLocation(final @NonNull Location location) {
+        return point(location.getBlockX(), location.getBlockZ());
     }
 
     @NotNull

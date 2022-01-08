@@ -20,15 +20,15 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static me.silverwolfg11.pl3xmaptowny.TestHelpers.*;
+import static me.ar00n.squaremaptowny.TestHelpers.*;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
-import me.silverwolfg11.pl3xmaptowny.util.PolygonUtil;
-import net.pl3x.map.api.Point;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
+import me.ar00n.squaremaptowny.util.PolygonUtil;
+import xyz.jpenilla.squaremap.api.Point;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

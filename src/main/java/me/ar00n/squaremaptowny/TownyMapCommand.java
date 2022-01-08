@@ -20,12 +20,12 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.towny.object.Town;
-import me.silverwolfg11.pl3xmaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.objects.TownRenderEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -43,14 +43,14 @@ import java.util.stream.Collectors;
 
 public class TownyMapCommand implements TabExecutor {
 
-    private final Pl3xMapTowny plugin;
+    private final squaremapTowny plugin;
 
-    private final String PERM_PREFIX = "pl3xmaptowny.";
+    private final String PERM_PREFIX = "squaremaptowny.";
     private final String PERM_DENY_MSG = ChatColor.RED + "You do not have permission to use this command!";
 
-    private final String PLUGIN_PREFIX = ChatColor.WHITE + "[" + ChatColor.GREEN + "Pl3xMap-Towny" + ChatColor.WHITE + "] ";
+    private final String PLUGIN_PREFIX = ChatColor.WHITE + "[" + ChatColor.GREEN + "squaremap-Towny" + ChatColor.WHITE + "] ";
 
-    public TownyMapCommand(Pl3xMapTowny plugin) {
+    public TownyMapCommand(squaremapTowny plugin) {
         this.plugin = plugin;
     }
 

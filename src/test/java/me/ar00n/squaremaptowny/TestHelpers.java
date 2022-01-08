@@ -20,11 +20,11 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
-import net.pl3x.map.api.Point;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
+import xyz.jpenilla.squaremap.api.Point;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,7 +37,7 @@ public class TestHelpers {
 
     // Helper methods
     @SafeVarargs
-    static final <T> List<T> list(T... items) {
+    static <T> List<T> list(T... items) {
         return Arrays.asList(items);
     }
 

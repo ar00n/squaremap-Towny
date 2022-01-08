@@ -20,12 +20,12 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.listeners;
+package me.ar00n.squaremaptowny.listeners;
 
 import com.palmergames.bukkit.towny.event.DeleteTownEvent;
 import com.palmergames.bukkit.towny.event.NewTownEvent;
-import me.silverwolfg11.pl3xmaptowny.Pl3xMapTowny;
-import me.silverwolfg11.pl3xmaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.squaremapTowny;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -33,9 +33,9 @@ import java.util.UUID;
 
 public class TownClaimListener implements Listener {
 
-    private final Pl3xMapTowny plugin;
+    private final squaremapTowny plugin;
 
-    public TownClaimListener(Pl3xMapTowny plugin) {
+    public TownClaimListener(squaremapTowny plugin) {
         this.plugin = plugin;
     }
 

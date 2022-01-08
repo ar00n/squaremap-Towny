@@ -20,10 +20,10 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.events;
+package me.ar00n.squaremaptowny.events;
 
-import net.pl3x.map.api.marker.MarkerOptions;
-import net.pl3x.map.api.marker.MultiPolygon;
+import xyz.jpenilla.squaremap.api.marker.MarkerOptions;
+import xyz.jpenilla.squaremap.api.marker.MultiPolygon;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
@@ -33,9 +33,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 /**
- * Event called when a town is about to be rendered on the Pl3xMap for a specific world.
+ * Event called when a town is about to be rendered on the squaremap for a specific world.
  *
- * Cancelling this event will prevent this town from being rendered in the world on the Pl3xMap.
+ * Cancelling this event will prevent this town from being rendered in the world on the squaremap.
  * This includes not rendering any homeblock or outpost icons for the town in the world.
  */
 public class WorldRenderTownEvent extends Event implements Cancellable {

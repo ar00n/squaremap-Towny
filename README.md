@@ -1,14 +1,10 @@
-# Pl3xMap-Towny
-A Towny and Pl3xMap add-on Spigot plugin that enables towns to show up on the Pl3xMap.
+# squaremap-Towny
+A Towny and squaremap add-on Spigot plugin that enables towns to show up on the squaremap.
 
 ## Dependencies
 This plugin requires you to have the following plugins on your server:
-- [Pl3xMap](https://github.com/pl3xgaming/Pl3xMap)
+- [squaremap](https://github.com/jpenilla/squaremap/)
 - [Towny](https://github.com/TownyAdvanced/Towny) 0.97.1 (or later)
-
-## Pl3xMap Archival
-Pl3xMap has been archived and will no longer be receiving any updates. Thus, for versions past 1.17.1, there is no gurantee that this plugin or Pl3xMap will continue to work.
-Any bugs specifically attributed towards this plugin will still be fixed, however, there will be no more major feature additions.
 
 ## Features
 Honestly, nothing uber special about this plugin other than it works, but if you really want to know:

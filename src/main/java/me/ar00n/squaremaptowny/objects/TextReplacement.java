@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.objects;
+package me.ar00n.squaremaptowny.objects;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -112,7 +112,7 @@ public class TextReplacement<T> {
      */
     @NotNull
     public static <V> TextReplacement<V> empty() {
-        return new TextReplacement<V>(null);
+        return new TextReplacement<>(null);
     }
 
     /**

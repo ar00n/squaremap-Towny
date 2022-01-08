@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.objects;
+package me.ar00n.squaremaptowny.objects;
 
 import org.jetbrains.annotations.NotNull;
 

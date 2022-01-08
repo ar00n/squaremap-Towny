@@ -20,10 +20,10 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.util;
+package me.ar00n.squaremaptowny.util;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayDeque;

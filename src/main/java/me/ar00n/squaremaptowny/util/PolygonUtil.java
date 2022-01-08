@@ -20,11 +20,11 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.util;
+package me.ar00n.squaremaptowny.util;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
-import net.pl3x.map.api.Point;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
+import xyz.jpenilla.squaremap.api.Point;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayDeque;
@@ -36,7 +36,7 @@ import java.util.Set;
 
 public class PolygonUtil {
 
-    private enum DIRECTION { RIGHT, DOWN, UP, LEFT };
+    private enum DIRECTION { RIGHT, DOWN, UP, LEFT }
 
     // Forms a polygon given a townblock cluster
     // Returns

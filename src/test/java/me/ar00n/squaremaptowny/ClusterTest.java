@@ -20,10 +20,10 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny;
+package me.ar00n.squaremaptowny;
 
-import me.silverwolfg11.pl3xmaptowny.objects.StaticTB;
-import me.silverwolfg11.pl3xmaptowny.objects.TBCluster;
+import me.ar00n.squaremaptowny.objects.StaticTB;
+import me.ar00n.squaremaptowny.objects.TBCluster;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,9 +32,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static me.silverwolfg11.pl3xmaptowny.TestHelpers.clustersOf;
-import static me.silverwolfg11.pl3xmaptowny.TestHelpers.list;
-import static me.silverwolfg11.pl3xmaptowny.TestHelpers.tb;
+import static me.ar00n.squaremaptowny.TestHelpers.clustersOf;
+import static me.ar00n.squaremaptowny.TestHelpers.list;
+import static me.ar00n.squaremaptowny.TestHelpers.tb;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

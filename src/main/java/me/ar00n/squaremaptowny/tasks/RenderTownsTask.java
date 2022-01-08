@@ -20,12 +20,12 @@
  * SOFTWARE.
  */
 
-package me.silverwolfg11.pl3xmaptowny.tasks;
+package me.ar00n.squaremaptowny.tasks;
 
 import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.towny.object.Town;
-import me.silverwolfg11.pl3xmaptowny.Pl3xMapTowny;
-import me.silverwolfg11.pl3xmaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.objects.TownRenderEntry;
+import me.ar00n.squaremaptowny.squaremapTowny;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -38,9 +38,9 @@ import java.util.UUID;
 // Uses TownyAPI
 public class RenderTownsTask extends BukkitRunnable {
 
-    private final Pl3xMapTowny plugin;
+    private final squaremapTowny plugin;
 
-    public RenderTownsTask(Pl3xMapTowny plugin) {
+    public RenderTownsTask(squaremapTowny plugin) {
         this.plugin = plugin;
     }
 
